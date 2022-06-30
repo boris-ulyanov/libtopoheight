@@ -19,7 +19,11 @@ add_library(topoheight SHARED
   source/picture.cpp
   third_party/rtree.c/rtree.c
 )
-target_link_libraries(topoheight png)
+target_link_libraries(topoheight
+  png
+  ctltriangulator
+)
 set_target_properties(topoheight PROPERTIES PREFIX "" OUTPUT_NAME topoheight)
 
 add_subdirectory(tests)
+add_subdirectory(third_party/DelaunayTriangulator)
